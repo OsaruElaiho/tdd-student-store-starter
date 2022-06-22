@@ -288,15 +288,16 @@ The following specifications were met on the Express backend and the React front
 
 - Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+  - I felt as though the topics discussed were a good intro seeing as I have come in with little to no knowledge on the topics. However, I
+    did feel as though the lectures and project had a very high learning curve.
 
 - If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
 
-Add your response here
+  - If I had more time I would have definetly spent more time using the extra resources to better familiarize myself with React
 
 - Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+  - Sadly, I was behind on the project compared to other interns due to external issuess and my project restoring itself to an earlier state after many changes. My project did not go as well as I would have hoped.
 
 ### Open-source libraries used
 
