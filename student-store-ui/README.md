@@ -4,7 +4,7 @@
 
 Selling merchandise in the modern era requires digital solutions. For this project, you'll be tasked with designing and constructing an online student store for the College of Codepath. The application entails a frontend user interface for potential customers to peruse the goods, and a backend API to handle data management. The API will be built with Node and Express and the UI will be built with React.
 
-// Include your gif here
+![](http://g.recordit.co/3FODbexJIP.gif)
 
 ### Application Features
 
@@ -40,35 +40,35 @@ The following specifications were met on the Express backend and the React front
 - [x] The core App component that contains the routes for the app and does the initial data fetching
 - [x] Renders a `BrowserRouter` component that contains a `Routes` component with the following routes:
   - [x] `/` - Should render the `Home.jsx` component
-  - [ ] `/products/:productId` - should render the `ProductDetail` component
-  - [ ] `*` - anything else should render the `NotFound` component
-- [ ] Renders the `Navbar` component on every route
-- [ ] Renders the `Sidebar` component on every route
-- [ ] Should create **at least** the following state variables:
-  - [ ] `products` - an array of product objects that is initially empty.
-  - [ ] `isFetching` - a boolean value representing whether or not the App is currently fetching the `products` from the API.
-  - [ ] `error` - a variable used to display a message when something goes wrong with the API requests.
-  - [ ] `isOpen` - a boolean value representing whether or not the `Sidebar.jsx` is in the open or closed state.
-  - [ ] `shoppingCart` - should store state for the active user's shopping cart (items they want to purchase and the quantity of each item).
-    - [ ] Use whatever data type works best here, but make sure the format the `shoppingCart` as an array before passing it to other components.
-    - [ ] When passed down to other components as a prop, it should formatted as an array of objects.
-    - [ ] Each object in the array should have two fields:
-      - [ ] The `itemId` field should store the `id` of the item being purchased.
-      - [ ] The `quantity` field should store a number representing how many of that item the user is purchasing.
-  - [ ] `checkoutForm` - the user's information that will be sent to the API when they checkout.
-- [ ] Leverage the `useEffect` hook to ensure that when the `App.jsx` component is mounted to the screen...
-  - [ ] It should make a `GET` request to the API's `/store` endpoint with the `axios.get` method.
-  - [ ] When the request completes successfully, it should store the `products` returned by the response in state.
-  - [ ] If the request does not complete successfully, or there are no `products` found in the response,
+  - [x] `/products/:productId` - should render the `ProductDetail` component
+  - [x] `*` - anything else should render the `NotFound` component
+- [x] Renders the `Navbar` component on every route
+- [x] Renders the `Sidebar` component on every route
+- [x] Should create **at least** the following state variables:
+  - [x] `products` - an array of product objects that is initially empty.
+  - [x] `isFetching` - a boolean value representing whether or not the App is currently fetching the `products` from the API.
+  - [x] `error` - a variable used to display a message when something goes wrong with the API requests.
+  - [x] `isOpen` - a boolean value representing whether or not the `Sidebar.jsx` is in the open or closed state.
+  - [x] `shoppingCart` - should store state for the active user's shopping cart (items they want to purchase and the quantity of each item).
+    - [x] Use whatever data type works best here, but make sure the format the `shoppingCart` as an array before passing it to other components.
+    - [x] When passed down to other components as a prop, it should formatted as an array of objects.
+    - [x] Each object in the array should have two fields:
+      - [x] The `itemId` field should store the `id` of the item being purchased.
+      - [x] The `quantity` field should store a number representing how many of that item the user is purchasing.
+  - [x] `checkoutForm` - the user's information that will be sent to the API when they checkout.
+- [x] Leverage the `useEffect` hook to ensure that when the `App.jsx` component is mounted to the screen...
+  - [x] It should make a `GET` request to the API's `/store` endpoint with the `axios.get` method.
+  - [x] When the request completes successfully, it should store the `products` returned by the response in state.
+  - [x] If the request does not complete successfully, or there are no `products` found in the response,
         it should create an error message and store it in the `error` state variable.
-- [ ] The `App.jsx` component should define handler functions to be passed as props to the `Home` and `ProductDetail` components.
-  - [ ] Define as many as are needed.
-  - [ ] At minimum, **create these five handlers**:
-    - [ ] The **`handleOnToggle`** function. When called...
-      - [ ] It should toggle the open/closed state of the `Sidebar`.
-    - [ ] The **`handleAddItemToCart`** function. When called...
-      - [ ] It should accept a single argument - `productId`
-      - [ ] It should add that product to the `shoppingCart` if it doesn't exist, and set its quantity to `1`.
+- [x] The `App.jsx` component should define handler functions to be passed as props to the `Home` and `ProductDetail` components.
+  - [x] Define as many as are needed.
+  - [x] At minimum, **create these five handlers**:
+    - [x] The **`handleOnToggle`** function. When called...
+      - [] It should toggle the open/closed state of the `Sidebar`.
+    - [x] The **`handleAddItemToCart`** function. When called...
+      - [] It should accept a single argument - `productId`
+      - [] It should add that product to the `shoppingCart` if it doesn't exist, and set its quantity to `1`.
       - [ ] If it does exist, it should increase the quantity by `1`.
       - [ ] It should add the price of the product to the total price of the `shoppingCart`.
     - [ ] The **`handleRemoveItemFromCart`** function. When called...
