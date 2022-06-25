@@ -5,11 +5,6 @@
 Selling merchandise in the modern era requires digital solutions. For this project, you'll be tasked with designing and constructing an online student store for the College of Codepath. The application entails a frontend user interface for potential customers to peruse the goods, and a backend API to handle data management. The API will be built with Node and Express and the UI will be built with React.
 
 ![](http://g.recordit.co/3FODbexJIP.gif)
-<<<<<<< HEAD
-=======
-![image](https://user-images.githubusercontent.com/40348266/175101587-bb82071f-d5f5-4391-ac05-2475aaa73f7f.png)
-
->>>>>>> cc7e9659c27371acc777199c647b4190fe1d4254
 
 ### Application Features
 
@@ -18,17 +13,10 @@ Selling merchandise in the modern era requires digital solutions. For this proje
 - [x] Displays the following sections: header, banner, search, product grid, about, contact, and footer.
 - [x] On initial page load, display the products at the [GET /store endpoint](https://codepath-store-api.herokuapp.com/store).
 - [x] User can click on the categories (Clothing, food, etc) to filter the product grid by type.
-<<<<<<< HEAD
 - [x] User can search for products.
 - [x] User can click on a product in the grid to view additional product details. Navigation is via a React Router.
 - [x] User can click to expand the shopping cart in the left navigation.
 - [ ] User can click the '+' button on a product cart to increment that product in the shopping cart.
-=======
-- [ ] User can search for products.
-- [] User can click on a product in the grid to view additional product details. Navigation is via a React Router.
-- [ ] User can click to expand the shopping cart in the left navigation.
-- [] User can click the '+' button on a product cart to increment that product in the shopping cart.
->>>>>>> cc7e9659c27371acc777199c647b4190fe1d4254
 - [ ] User can click the '-' button on a product cart to increment that product in the shopping cart.
 - [ ] Shopping cart displays a table of products, quantities, subtotal, tax, and total.
 - [ ] User can check out, and can view receipt upon completion.
@@ -77,9 +65,8 @@ The following specifications were met on the Express backend and the React front
   - [x] Define as many as are needed.
   - [x] At minimum, **create these five handlers**:
     - [x] The **`handleOnToggle`** function. When called...
-      - [] It should toggle the open/closed state of the `Sidebar`.
+      - [x] It should toggle the open/closed state of the `Sidebar`.
     - [x] The **`handleAddItemToCart`** function. When called...
-<<<<<<< HEAD
       - [x] It should accept a single argument - `productId`
       - [x] It should add that product to the `shoppingCart` if it doesn't exist, and set its quantity to `1`.
       - [x] If it does exist, it should increase the quantity by `1`.
@@ -87,17 +74,8 @@ The following specifications were met on the Express backend and the React front
     - [x] The **`handleRemoveItemFromCart`** function. When called...
       - [x] It should accept a single argument - `productId`
       - [x] It should decrease the quantity of the item in the `shoppingCart` by `1`, but only if it already exists.
-=======
-      - [] It should accept a single argument - `productId`
-      - [] It should add that product to the `shoppingCart` if it doesn't exist, and set its quantity to `1`.
-      - [ ] If it does exist, it should increase the quantity by `1`.
-      - [ ] It should add the price of the product to the total price of the `shoppingCart`.
-    - [ ] The **`handleRemoveItemFromCart`** function. When called...
-      - [ ] It should accept a single argument - `productId`
-      - [ ] It should decrease the quantity of the item in the `shoppingCart` by `1`, but only if it already exists.
->>>>>>> cc7e9659c27371acc777199c647b4190fe1d4254
-      - [ ] If it doesn't exist, the function should do nothing.
-      - [ ] If the new quantity is `0`, it should remove the item from the `shoppingCart`
+      - [x] If it doesn't exist, the function should do nothing.
+      - [x] If the new quantity is `0`, it should remove the item from the `shoppingCart`
     - [ ] The **`handleOnCheckoutFormChange`** function. When called...
       - [ ] It should receive two arguments:
         - [ ] `name` - the `name` attribute of the input being updated
@@ -158,7 +136,6 @@ The following specifications were met on the Express backend and the React front
 - [x] Should accept **at least** the following props:
   - `handleAddItemToCart` - handler function defined in the `App.jsx` component
   - `handleRemoveItemToCart` - handler function defined in the `App.jsx` component
-<<<<<<< HEAD
 - [x] Should define **at least** a `product` state variable and updater
 - [x] It should leverage the `useParams` hook from `react-router-dom` to extract the `productId` param from the url.
 - [x] When the component is mounted to the screen...
@@ -172,33 +149,13 @@ The following specifications were met on the Express backend and the React front
 
 - [x] Should render JSX that is wrapped by a `div` element with a `className` of `product-view`
 - [x] Should accept **at least** the following props:
-=======
-- [ ] Should define **at least** a `product` state variable and updater
-- [ ] It should leverage the `useParams` hook from `react-router-dom` to extract the `productId` param from the url.
-- [ ] When the component is mounted to the screen...
-  - [ ] It should make a `GET` request to the `/store/:productId` endpoint with the `axios.get` method.
-  - [ ] The `:productId` part of the request should be replaced with the `productId` pulled from the url.
-  - [ ] When the initial request is loading, it should render an `h1` element with the `className` of `loading` and contain the text `"Loading..."`
-  - [ ] It should store the `product` received by the request in state and then render the `ProductView` component.
-  - [ ] If no `product` is found with that `id`, it should render the `NotFound` component
-
-**ProductView.jsx**
-
-- [ ] Should render JSX that is wrapped by a `div` element with a `className` of `product-view`
-- [ ] Should accept **at least** the following props:
->>>>>>> cc7e9659c27371acc777199c647b4190fe1d4254
   - `product` - the `product` object returned by the API request
   - `productId` - the id of the product extracted from the url
   - `quantity` - the quantity for this product found in the `shoppingCart`
   - `handleAddItemToCart` - handler function
   - `handleRemoveItemToCart` - handler function
-<<<<<<< HEAD
 - [x] It should display an `h1` element with the `className` of `product-id` that contains the text: `Product #` followed by the `productId` prop
 - [x] It should render a `ProductCard` component and pass it the props it needs. It should also set the `showDescription` prop to `true` for this product card.
-=======
-- [ ] It should display an `h1` element with the `className` of `product-id` that contains the text: `Product #` followed by the `productId` prop
-- [ ] It should render a `ProductCard` component and pass it the props it needs. It should also set the `showDescription` prop to `true` for this product card.
->>>>>>> cc7e9659c27371acc777199c647b4190fe1d4254
 
 **ProductCard.jsx**
 
@@ -225,13 +182,8 @@ The following specifications were met on the Express backend and the React front
 
 **Sidebar.jsx**
 
-<<<<<<< HEAD
 - [x] Should render JSX that is wrapped by a `section` element with the `className` of `sidebar`
 - [x] Should accept **at least** the following props (and probably a few more):
-=======
-- [ ] Should render JSX that is wrapped by a `section` element with the `className` of `sidebar`
-- [ ] Should accept **at least** the following props (and probably a few more):
->>>>>>> cc7e9659c27371acc777199c647b4190fe1d4254
   - `isOpen` - boolean representing the open/closed state of the Sidebar
   - `shoppingCart` - the active user's cart formatted as an array of objects with `itemId` and `quantity` keys
   - `products` - the array of products fetched from the API
@@ -239,15 +191,9 @@ The following specifications were met on the Express backend and the React front
   - `handleOnCheckoutFormChange` - handler function to update the `checkoutForm` object
   - `handleOnSubmitCheckoutForm` - handler function to submit the user's order to the API
   - `handleOnToggle` - handler function to toggle open/closed `Sidebar` state
-<<<<<<< HEAD
 - [x] It should always render a `button` element with the `className` of `toggle-button`. When that button is clicked it should change the `isOpen` prop by calling the `handleOnToggle` prop.
 - [x] When the sidebar is opened, it should display the `ShoppingCart` and `CheckoutForm` components and should be wider than `350px`.
 - [x] When the sidebar is closed, it should only render the toggle button and shouldn't be wider than `150px`.
-=======
-- [ ] It should always render a `button` element with the `className` of `toggle-button`. When that button is clicked it should change the `isOpen` prop by calling the `handleOnToggle` prop.
-- [ ] When the sidebar is opened, it should display the `ShoppingCart` and `CheckoutForm` components and should be wider than `350px`.
-- [ ] When the sidebar is closed, it should only render the toggle button and shouldn't be wider than `150px`.
->>>>>>> cc7e9659c27371acc777199c647b4190fe1d4254
 
 **ShoppingCart.jsx**
 
@@ -297,7 +243,6 @@ The following specifications were met on the Express backend and the React front
 
 **Server** - Create an Express server
 
-<<<<<<< HEAD
 - [x] Wire up the appropriate middleware and error handlers in the `app.js` file
 - [x] Create a single `GET` request handler at the `/` endpoint. It should respond to all `GET` requests with a JSON object and a `200` status code. The JSON response should contain a single key of `ping` that stores the string value: `pong`. For example: `{ "ping": "pong" }`.
 - [x] Have a `server.js` file that starts the app by listening on port `3001`.
@@ -313,23 +258,6 @@ The following specifications were met on the Express backend and the React front
 - [x] It should respond to `GET` requests to `/store` with an array of all products in the store in this format: `{ "products": products }`
 - [x] It should respond to `GET` requests to `/store/:productId` with a single product based on the product's id using this JSON format: `{ "product": product }`
 - [x] It should allow `POST` requests to the `/store` endpoint:
-=======
-- [ ] Wire up the appropriate middleware and error handlers in the `app.js` file
-- [ ] Create a single `GET` request handler at the `/` endpoint. It should respond to all `GET` requests with a JSON object and a `200` status code. The JSON response should contain a single key of `ping` that stores the string value: `pong`. For example: `{ "ping": "pong" }`.
-- [ ] Have a `server.js` file that starts the app by listening on port `3001`.
-
-**Models** - The API should use a `Store` model that handles the following
-
-- [ ] List all products currently in the `db.json` file
-- [ ] Fetch a single product by its id
-- [ ] Create a purchase order
-
-**Routes** - The API should contain a route mounted at the `/store` endpoint
-
-- [ ] It should respond to `GET` requests to `/store` with an array of all products in the store in this format: `{ "products": products }`
-- [ ] It should respond to `GET` requests to `/store/:productId` with a single product based on the product's id using this JSON format: `{ "product": product }`
-- [ ] It should allow `POST` requests to the `/store` endpoint:
->>>>>>> cc7e9659c27371acc777199c647b4190fe1d4254
   - [ ] The endpoint should create purchase orders for users and save them to the `db.json` file
   - [ ] The endpoint should accept a request body that contains `shoppingCart` and `user` fields.
     - [ ] The `shoppingCart` field should contain the user's order.
@@ -378,8 +306,5 @@ The following specifications were met on the Express backend and the React front
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
-<<<<<<< HEAD
 
 - Roy Alda, Nnaemeka Odedo, Nasradin Kewden
-=======
->>>>>>> cc7e9659c27371acc777199c647b4190fe1d4254
