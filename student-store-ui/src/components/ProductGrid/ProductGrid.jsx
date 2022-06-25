@@ -2,7 +2,7 @@ import * as React from "react"
 import ProductCard from "../ProductCard/ProductCard"
 import "./ProductGrid.css"
 
-export default function ProductGrid({products, handleAddItemToCart, handleRemoveItemToCart}) {
+export default function ProductGrid({products, handleAddItemToCart, handleRemoveItemFromCart}) {
   return (
     <div className="product-grid">
         <div className="content">
@@ -16,7 +16,7 @@ export default function ProductGrid({products, handleAddItemToCart, handleRemove
                 product={product}
                 showDescription={false}
                 handleAddItemToCart={handleAddItemToCart}
-                handleRemoveItemToCart={handleRemoveItemToCart}
+                handleRemoveItemFromCart={handleRemoveItemFromCart}
                 />
                )
                 )

@@ -1,13 +1,21 @@
 import * as React from "react"
 import Logo from "../Logo/Logo"
+import { Link } from "react-router-dom"
 import "./Navbar.css"
 
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <div className="content">
+      <div className="header">
         <div className="logo">
           <Logo/>
+        </div>
+        <div className="nav-links-div">
+          <Link to="/" className="nav-links">Home</Link>
+          <Link to="/" className="nav-links">About Us</Link>
+          <Link to="/" className="nav-links">Contact Us</Link>
+          <Link to="/" className="nav-links">Buy Now</Link>
+          <Link to="/" className="nav-links">Product Details</Link>
         </div>
       </div>
     </nav>

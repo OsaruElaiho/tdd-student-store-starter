@@ -6,7 +6,7 @@ import "./Home.css"
 export default function Home({products, handleAddItemToCart, handleRemoveItemToCart}) {
   return (
     <div className="home">
-      <Hero/>
+      {/* <Hero/> */}
       <ProductGrid 
         products={products}
         handleAddItemToCart={handleAddItemToCart}

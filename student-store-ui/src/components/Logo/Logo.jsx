@@ -6,7 +6,7 @@ export default function Logo() {
     return (
       <div className="logo">
         <Link to="/">
-        <img src={"/src/codepath.png"} alt="codepath logo" />
+        <img src="https://codepath-student-store-demo.surge.sh/assets/codepath.f1b3e41a.svg" alt="codepath logo" />
         </Link>
       </div>
     )

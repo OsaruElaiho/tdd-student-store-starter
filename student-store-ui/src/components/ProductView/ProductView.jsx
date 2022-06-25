@@ -1,16 +1,16 @@
 import * as React from "react"
 import ProductCard from "../ProductCard/ProductCard"
 
-export default function ProductView({product, productID, quantity, handleAddItemToCart, handleRemoveItemToCart}) {
+export default function ProductView({product, productId, quantity, handleAddItemToCart, handleRemoveItemFromCart}) {
   return (
     <div className="product-view">
-        <h1 className="product-id">Product # {productID}</h1>
+        <h1 className="product-id">Product # {productId}</h1>
         <ProductCard>
             product={product}
-            productId={productID}
+            productId={productId}
             quantity={quantity}
             handleAddItemToCart={handleAddItemToCart}
-            handleRemoveItemToCart={handleRemoveItemToCart}
+            handleRemoveItemFromCart={handleRemoveItemFromCart}
             showDescription={true}
         </ProductCard>
     </div>
