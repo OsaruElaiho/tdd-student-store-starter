@@ -1,106 +1,113 @@
 import * as React from "react"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import "./App.css"
+import { useState } from "react"
+
+//import components
 import Navbar from "../Navbar/Navbar"
 import Sidebar from "../Sidebar/Sidebar"
 import Home from "../Home/Home"
-import ProductDetail from "../ProductDetail/ProductDetail"
 import NotFound from "../NotFound/NotFound"
-import SubNavBar from "../SubNavBar/SubNavBar"
+import ProductDetail from "../ProductDetail/ProductDetail"
 import Hero from "../Hero/Hero"
-import "./App.css"
-import axios from "axios"
+import SubNavBar from "../SubNavBar/SubNavBar"
+
+
+//Import Routes and API 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import axios from 'axios'
+import { useEffect } from "react"
+
 
 export default function App() {
   const [products,setProducts] = React.useState([])
-  const [isFetching,setIsFetching] = React.useState(false)
-  const [error,setError] = React.useState(null)
+  const [isFetching,setIsFetching] = React.useState()
+  const [error,setError] = React.useState("")
   const [isOpen,setIsOpen] = React.useState(false)
-  const [shoppingCart,setShoppingCart] = React.useState({
-    itemId: 0, 
-    quantity: 0 })
-  const [checkoutForm,setCheckoutForm] = React.useState("")
+  const [shoppingCart,setShoppingCart] = React.useState([])
+  const [checkoutForm,setCheckoutForm] = React.useState({name:"", email: ""})
   const [inputValue,setInputValue] = React.useState("")
+  const [purchases, setPurchases] = useState([])
   
-  const handleOnToggle = () => {
-    if(isOpen){
-      setIsOpen(false)
-    } else{
-      setIsOpen(true)
-    }
-  }
-
-  const handleAddItemToCart = (productId) => {
-    for(let i = 0; i < shoppingCart.length; i++){
-      if(shoppingCart[i].itemId == productId){
-        shoppingCart[i].quantity += 1
-        setShoppingCart((cart) => [...cart])
-        return
-      }
-      productId.quantity = 1
-      setShoppingCart((cart) => [...cart])
-    }    
-  }
-
-  const handleRemoveItemFromCart = (productId) => {
-    for(let i = 0; i < shoppingCart.length; i++){
-      if(shoppingCart[i].itemId == productId){
-        shoppingCart[i].quantity -= 1
-        setShoppingCart((cart) => [...cart])
-        return
-      } else if (shoppingCart[i].itemId.quantity == 0){
-        delete shoppingCart[i]
-      }
-    }
-  }
-
-  // should update the checkoutForm object with the new value from the correct input(s)
-  const handleOnCheckoutFormChange = ({name, value}) => {
-    setCheckoutForm({name, value})
-  }
-
-  // should submit the user's order to the API
-  const handleOnSubmitCheckoutForm = () => {
-    axios.post("https://codepath-store-api.herokuapp.com/store",{
-      user:{name:checkoutForm.name, email:checkoutForm.value, shoppingCart}
-    })
-    .then(function(response){
-    })
-    .catch(function(error){
-    })
-  }
-  
-  const handleInputValueChange = (event) => {
-    setInputValue(event.target.value)
-  }
-
-  // API Call
-const getData = async () => {
-  const { data } = await axios.get(`https://codepath-store-api.herokuapp.com/store`);
-  console.log(data.products.length)
-  console.log(data.products);
-
-  if (data.products.length > 0) {
-    console.log("Set the data!")
-    setProducts(data.products);
-  }
-  else {
-    setError("API call failure!")
+const handleOnToggle = () => {
+  if (isOpen === true) {
+    setIsOpen(false)
+  } else {
+    setIsOpen(true)
   }
 }
 
-React.useEffect(() => {
-  getData();
-}, []);
 
-  return (
+function handleAddItemToCart (productId) {
+  console.log("productId", productId)
+  if(shoppingCart.hasOwnProperty(productId)){
+    setShoppingCart((prevCart)=> 
+    ({...prevCart, [productId]:prevCart[productId] + 1}))
+  }
+  else{
+    setShoppingCart((prevCart) => 
+    ({...prevCart, [productId]:1}))
+  } 
+}
+
+const handleRemoveItemFromCart = (productId) => {
+  const cart = {...shoppingCart, [productId]:shoppingCart[productId]-1}
+    if(cart[productId]=== 0){
+      delete cart[productId]
+    }
+  setShoppingCart(cart)
+}
+
+    
+// should update the checkoutForm object with the new value from the correct input(s)
+function handleOnCheckoutFormChange(name, value) {
+  setCheckoutForm({...checkoutForm, [name] : value})
+}
+
+
+// should submit the user's order to the API
+const handleOnSubmitCheckoutForm = async () => {
+  try {
+    const res = await axios.post('http://localhost:3001/store', {user :checkoutForm, shoppingCart: shoppingCart})
+    if(res.data.purchase) {
+      setPurchases(current => [...current,res.data.purchase])
+      setShoppingCart([])
+    }      
+  }catch(err) {
+      console.log({err})
+  }
+  setShoppingCart([])
+}
+  
+useEffect(() => {
+  const getProducts = async () => {
+    try {
+      const response = await axios.get(`https://codepath-store-api.herokuapp.com/store`)
+      // const response = await axios.get('http://localhost:3001/store')
+      const products =  await response?.data?.products
+      setProducts(products)
+    } catch(error) {
+      setError("data retrieval failed")
+    }
+  }
+  getProducts()   
+}, [])
+
+const handleInputValueChange = (event) => {
+  setInputValue(event.target.value)
+}
+
+
+return (
     <div className="app">
       <BrowserRouter>
       <main>
         <Sidebar
         isOpen={isOpen}
         shoppingCart={shoppingCart}
+        setShoppingCart={setShoppingCart}
         products={products}
         checkoutForm={checkoutForm}
+        setCheckoutForm={setCheckoutForm}
         handleOnCheckoutFormChange={handleOnCheckoutFormChange}
         handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
         handleOnToggle={handleOnToggle}
@@ -132,22 +139,20 @@ React.useEffect(() => {
                 path="/products/:productId" 
                 element={
                   <ProductDetail 
-                    handleOnToggle={handleOnToggle}
-                    handleAddItemToCart={handleAddItemToCart}
-                    handleRemoveItemFromCart={handleRemoveItemFromCart}
-                    handleOnCheckoutFormChange={handleOnCheckoutFormChange}
-                    handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm}
+                    // isFetching={isFetching} 
+                    // setIsFetching={setIsFetching}
+                    handleAddItemToCart={handleAddItemToCart} 
+                    handleRemoveItemFromCart={handleRemoveItemFromCart} 
+                    // error={error}
+                    // setError={setError} 
+                    shoppingCart={shoppingCart}
                   />
                 }
               />
 
               <Route 
                 path="*" 
-                element={
-                  <NotFound 
-
-                  />
-                }
+                element={ <NotFound/> }
               />
         </Routes>
         </main>

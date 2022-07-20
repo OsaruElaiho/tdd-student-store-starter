@@ -3,6 +3,7 @@ import ProductCard from "../ProductCard/ProductCard"
 import "./ProductGrid.css"
 
 export default function ProductGrid({products, handleAddItemToCart, handleRemoveItemFromCart}) {
+  console.log("remove function (ProductGrid)",handleRemoveItemFromCart)
   return (
     <div className="product-grid">
         <div className="content">

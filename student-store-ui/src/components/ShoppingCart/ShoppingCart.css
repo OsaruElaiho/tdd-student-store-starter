@@ -1,0 +1,45 @@
+.shopping-cart .CartTable {
+    width: 100%;
+    margin: 0 10px;
+}
+
+.cart-table {
+    width: 100%;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+table {
+    background-color: white;
+    text-align: center;
+}
+
+.cart-product-name {
+    padding-right: 50px;
+}
+.name-header {
+    display: flex;
+    flex: 2;
+}
+.header {
+    padding-right: 15px;
+}
+.quantity {
+    align-self:center;
+}
+tfoot {
+    border-top: 1px solid black;
+    display: block;
+    text-align: right;
+}
+.tf {
+    font-weight: bold;
+}
+.note {
+    margin-top: 10px;
+    color: white;
+    font-weight: bold;
+}

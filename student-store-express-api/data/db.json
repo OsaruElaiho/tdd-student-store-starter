@@ -145,5 +145,14 @@
       "price": 999.99
     }
   ],
-  "purchases": []
+  "purchases": [
+    {
+      "id": 1,
+      "name": "Osa",
+      "email": "osaruelaiho@gmail.com",
+      "order": [],
+      "total": "0.00",
+      "createdAt": "2022-07-19T06:18:32.922Z"
+    }
+  ]
 }

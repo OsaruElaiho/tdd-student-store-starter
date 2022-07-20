@@ -1,22 +1,30 @@
 .product-card {
-  /* height: 350px;
-  width: 250px; */
   background: #fff;
-  display: flex;
-  flex-direction: column;
-  border: solid 1px #e4e4e4;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px #e4e4e4;
+    max-width: 800px;
 }
 
 .media {
-
   width: 100%;
   height: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
+}
+
+.product-card .product-info {
+  flex: 1;
+  display: flex;
+  border-top: solid 1px #e4e4e4;
 }
 
 .main-info {
   width:100%;
   padding-left:20px;
   padding-right: 20px;
+
 }
 
 .pc-image{
@@ -30,6 +38,41 @@
   height: 97px;
   padding: 8px 12px;
   /* width:100%; */
+}
+
+.product-card .actions {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.product-card .shop-btns {
+  width: 80px;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.product-card .shop-btns button {
+  display: flex;
+  outline: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  max-height: fit-content;
+  max-width: fit-content;
+  margin: 10px 5px;
+}
+
+.product-card .product-quantity {
+  width: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 5px;
 }
 
 .stars {
@@ -52,17 +95,7 @@
   margin:0;
 }
 
-.remove, .add {
-  display: flex;
-  outline: none;
-  /* border: none; */
-  border: solid;
-  border-style: double;
-  border-width: 5px;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
-  max-height: fit-content;
-  max-width: fit-content;
-  margin: 10px 5px;
+div {
+  display: block;
 }
+

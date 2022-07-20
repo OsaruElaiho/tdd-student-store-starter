@@ -14,7 +14,6 @@ export default function SubNavBar(props) {
             console.log(filteredCategory)
             props.setProducts(filteredCategory)
         }
-
     }
 
     return (
@@ -25,7 +24,7 @@ export default function SubNavBar(props) {
                 <input
                 type="text"
                 name="search"
-                placeholder="Search"
+                placeholder="Search..."
                 value={props.inputValue}
                 onChange={props.handleInputValueChange}
                 />

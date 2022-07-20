@@ -1,22 +1,24 @@
 import * as React from "react"
 import "./Sidebar.css"
 import ShoppingCart from "../ShoppingCart/ShoppingCart"
-
+import CheckoutForm from "../CheckoutForm/CheckoutForm"
 
 export default function Sidebar(props) {
-  let temp = props.isOpen ? "open":"closed"
   return (
-    <section className={`sidebar ${temp}`}>
-      <div className="wrapper">
-        <button className="toggle-button" onClick={props.handleOnToggle}>cart</button>
-        <div className="shopping-cart">
-        <ShoppingCart>
-          isOpen={props.isOpen}
-          products={props.products}
-          shoppingCart={props.shoppingCart}
-        </ShoppingCart>
-        </div>
-      </div>
+    <section className={props.isOpen ? "sidebar open" : "sidebar closed"}>
+      <button className="toggle-button" onClick={props.handleOnToggle}>------</button>
+      <ShoppingCart 
+      products={props.products} 
+      shoppingCart={props.shoppingCart} 
+      />
+      <CheckoutForm 
+      isOpen={props.isOpen} 
+      shoppingCart={props.shoppingCart} 
+      checkoutForm={props.checkoutForm} 
+      setCheckoutForm={props.setCheckoutForm} 
+      handleOnCheckoutFormChange={props.handleOnCheckoutFormChange} 
+      handleOnSubmitCheckoutForm={props.handleOnSubmitCheckoutForm} 
+      />
     </section>
   )
 }

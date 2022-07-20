@@ -2,8 +2,8 @@ import * as React from "react"
 
 export default function NotFound() {
     return (
-      <section className="not-found">
-        <p>NotFound</p>
-      </section>
+      <div className="not-found">
+        <p>NOT FOUND 404</p>
+      </div>
     )
   }
