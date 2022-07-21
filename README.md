@@ -7,6 +7,9 @@ Selling merchandise in the modern era requires digital solutions. For this proje
 Week 2 
 https://www.loom.com/share/43748e9b67df4bfbad3bfd6d66825184
 
+Week 3
+https://www.loom.com/share/b6e63d7020bd4a2e8d2a93b59900a20b
+
 ### Application Features
 
 #### Core Features
